@@ -27,7 +27,7 @@ def manage_scripts():
     # Define the path of the new script file on the Desktop
     # IMPORTANT: Replace 'your_username' with your actual Linux username.
     # You can find your username by typing 'whoami' in your terminal.
-    desktop_script_source_path = os.path.expanduser(f"/home/entuity/FileSwitch/Switch/{script_file_name}")
+    desktop_script_source_path = os.path.expanduser(f"/home/entuity/FileSwitcher/Switch/{script_file_name}")
 
     print(f"Starting script management operations...")
     print(f"Target base directory: {scripts_base_dir}")
