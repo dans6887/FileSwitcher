@@ -1,7 +1,7 @@
 import subprocess
 
 SERVICE_NAME = "parkplacetech-agent-updater"
-SERVICE_NAME2 = "parkplacetech-agent-updater"
+SERVICE_NAME2 = "parkplacetech-collector"
 
 def run_command(command):
     try:
