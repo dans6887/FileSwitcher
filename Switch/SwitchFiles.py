@@ -71,6 +71,42 @@ def manage_scripts():
 
     print("All operations completed successfully!")
 
+
+
+def add_x_extension_to_files(directory):
+    """
+    Adds a '.x' extension to every file in the specified directory.
+    This function skips subdirectories.
+
+    Args:
+        directory (str): The path to the directory containing the files to rename.
+    """
+    print(f"\nAdding '.x' extension to files in '{directory}'...")
+    try:
+        # Check if the directory exists
+        if not os.path.isdir(directory):
+            print(f"Error: Directory '{directory}' not found.", file=sys.stderr)
+            return
+            
+        # List all entries in the directory
+        for filename in os.listdir(directory):
+            # Construct the full path
+            old_filepath = os.path.join(directory, filename)
+            
+            # Check if the entry is a file (not a subdirectory)
+            if os.path.isfile(old_filepath):
+                # Check if the file already has a '.x' extension
+                if not filename.endswith('.x'):
+                    new_filepath = old_filepath + ".x"
+                    os.rename(old_filepath, new_filepath)
+                    print(f"Renamed '{filename}' to '{os.path.basename(new_filepath)}'")
+                else:
+                    print(f"File '{filename}' already has '.x' extension, skipping.")
+    except OSError as e:
+        print(f"Error processing files in directory {directory}: {e}", file=sys.stderr)
+        sys.exit(1) # Exit if file renaming fails
+
+
 if __name__ == "__main__":
     # Call the main function to run the script
     manage_scripts()
